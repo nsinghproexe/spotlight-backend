@@ -6,6 +6,9 @@ const port = 3000;
 const { randomInt } = require("crypto");
 var cron = require("node-cron");
 const fs = require("fs");
+const cors = require("cors");
+app.use(cors())
+app.options("*", cors());
 
 const allEmployees = {
   jayShreeEmployees: [
@@ -34,7 +37,7 @@ const allEmployees = {
   blackListedEmployees: [],
 };
 
-let spotlightEmployee = "";
+let spotlightEmployee = "Rohit Nale";
 
 var getEmployeeName = () => {
   console.log("allEmployees before: ", allEmployees);
